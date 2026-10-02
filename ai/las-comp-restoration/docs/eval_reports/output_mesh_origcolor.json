@@ -1,0 +1,12 @@
+{
+  "source": "artifacts/gupdari71489/source_model.glb",
+  "result": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-refteam-color-s1/output_mesh_color.glb",
+  "out": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-refteam-color-s1/output_mesh_origcolor.glb",
+  "frame": "swap_yz",
+  "tau_voxels": 1.5,
+  "tau_abs": 0.02351,
+  "n_verts": 500044,
+  "observed_verts": 272091,
+  "observed_frac": 0.5441,
+  "geometry_changed": false
+}

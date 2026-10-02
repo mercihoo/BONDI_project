@@ -1,0 +1,41 @@
+{
+  "source": "artifacts/gupdari71489/source_model.glb",
+  "composite": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-guide9-s1/restored_with_original.glb",
+  "out": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-guide9-s1/restored_tex.glb",
+  "up_axis": "y",
+  "axis_center": [
+    -0.020625,
+    0.058883
+  ],
+  "base_radius": 0.32064,
+  "base_frac": 0.08,
+  "mirror": true,
+  "mode": "blend",
+  "detail_k": 12,
+  "detail_gain": 0.8,
+  "bands": 200,
+  "tint": null,
+  "fill_verts": 430177,
+  "fill_faces": 844678,
+  "fill_color_mean": [
+    154.2,
+    147.5,
+    135.8
+  ],
+  "fill_color_std": [
+    21.4,
+    22.8,
+    22.9
+  ],
+  "source_color_mean": [
+    144.7,
+    137.1,
+    125.3
+  ],
+  "source_color_std": [
+    40.5,
+    42.5,
+    43.5
+  ],
+  "geometry_changed": false
+}

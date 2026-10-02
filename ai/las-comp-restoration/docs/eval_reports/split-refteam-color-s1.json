@@ -1,0 +1,19 @@
+{
+  "source": "artifacts/gupdari71489/source_model.glb",
+  "result": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-refteam-color-s1/output_mesh_color.glb",
+  "frame": "swap_yz",
+  "tau_voxels": 1.5,
+  "tau_abs": 0.02351,
+  "result_faces": 1000096,
+  "frame_medians": {
+    "same": 0.08813,
+    "swap_yz": 0.01122,
+    "swap_yz_negz": 0.01825,
+    "swap_yz_negy": 0.11352,
+    "swap_yz_negyz": 0.09593
+  },
+  "observed_faces": 545469,
+  "observed_area_frac": 0.5399,
+  "filled_faces": 454627,
+  "filled_area_frac": 0.4601
+}

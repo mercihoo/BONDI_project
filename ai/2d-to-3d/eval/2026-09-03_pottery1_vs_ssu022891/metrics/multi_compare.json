@@ -1,0 +1,105 @@
+{
+  "gt": {
+    "path": "<WORKSPACE>/gt_ascii/ssu022891-001-30000.obj",
+    "extents_mm": [
+      264.44877994913725,
+      265.48302555540647,
+      383.1997939056441
+    ]
+  },
+  "models": {
+    "TripoSR": {
+      "path": "<WORKSPACE>/work/triposr_out/0/mesh.obj",
+      "vertices": 79389,
+      "faces": 158748,
+      "watertight": false,
+      "has_colour": true,
+      "scale_to_mm": 364.0314617444136,
+      "icp_rms_mm": 13.254468280438179,
+      "tilt_deg": 19.078571248162824,
+      "extents_after_align_mm": [
+        260.2462767788936,
+        246.0293748964404,
+        375.94428268335554
+      ],
+      "chamfer_L1_mm": 10.082553623033771,
+      "accuracy_mean_mm": 11.484173811060568,
+      "completeness_mean_mm": 8.680933435006976,
+      "accuracy_median_mm": 5.009263325913776,
+      "completeness_median_mm": 7.215166903027477,
+      "hausdorff_mm": 112.92851740881488,
+      "p95_gen_to_gt_mm": 54.53120952115366,
+      "fscore_1pct": 0.4431275143446322,
+      "fscore_2pct": 0.7070756302080604,
+      "fscore_5pct": 0.9317529763055705,
+      "front_back_mean_err_mm": [
+        10.6042710374742,
+        12.378841006791658
+      ],
+      "wall_time_s": 104.0,
+      "compare_elapsed_s": 68.26512622833252
+    },
+    "SF3D": {
+      "path": "<WORKSPACE>/work/sf3d_out/0/mesh.glb",
+      "vertices": 9728,
+      "faces": 17772,
+      "watertight": false,
+      "has_colour": true,
+      "scale_to_mm": 373.0117113876504,
+      "icp_rms_mm": 15.224052334871946,
+      "tilt_deg": 96.1775547981378,
+      "extents_after_align_mm": [
+        243.47843466477087,
+        137.95939135476587,
+        346.5799435165572
+      ],
+      "chamfer_L1_mm": 46.564087233933826,
+      "accuracy_mean_mm": 13.875201455661522,
+      "completeness_mean_mm": 79.25297301220613,
+      "accuracy_median_mm": 10.738280558465597,
+      "completeness_median_mm": 63.90821580322389,
+      "hausdorff_mm": 236.38430134931804,
+      "p95_gen_to_gt_mm": 36.42747809223676,
+      "fscore_1pct": 0.12057366053417864,
+      "fscore_2pct": 0.2650065553536884,
+      "fscore_5pct": 0.4824232107269445,
+      "front_back_mean_err_mm": [
+        9.742205401657833,
+        18.51751656986814
+      ],
+      "wall_time_s": 22.0,
+      "compare_elapsed_s": 61.52188968658447
+    },
+    "SPAR3D": {
+      "path": "<WORKSPACE>/work/spar3d_out/0/mesh.glb",
+      "vertices": 12961,
+      "faces": 22920,
+      "watertight": false,
+      "has_colour": true,
+      "scale_to_mm": 334.2951684344571,
+      "icp_rms_mm": 14.69979329001437,
+      "tilt_deg": 79.8844726815483,
+      "extents_after_align_mm": [
+        243.86419866843494,
+        120.91687149446614,
+        341.15568896419745
+      ],
+      "chamfer_L1_mm": 46.782292232140875,
+      "accuracy_mean_mm": 13.11800218772461,
+      "completeness_mean_mm": 80.44658227655714,
+      "accuracy_median_mm": 10.683961035926597,
+      "completeness_median_mm": 70.57777655823706,
+      "hausdorff_mm": 206.46249128837,
+      "p95_gen_to_gt_mm": 32.89461816916928,
+      "fscore_1pct": 0.1549855338813858,
+      "fscore_2pct": 0.27224108962761123,
+      "fscore_5pct": 0.4600127064728396,
+      "front_back_mean_err_mm": [
+        12.995265573611139,
+        13.249507609661457
+      ],
+      "wall_time_s": 60.0,
+      "compare_elapsed_s": 67.75412559509277
+    }
+  }
+}

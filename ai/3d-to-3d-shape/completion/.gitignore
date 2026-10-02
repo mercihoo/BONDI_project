@@ -1,0 +1,10 @@
+# CONTRIBUTING.md §10 — 스크립트·기록·근거 그림은 커밋, 가중치·산출물·벤더는 공유 스토리지.
+#
+# ckpts/   AdaPoinTr 사전학습·파인튜닝 가중치 (744MB)
+# work/    합성 결손 쌍 npz·예측 점군·메시 (706MB)
+# vendor/  PoinTr 저장소 벤더링 (59MB) — 원본은 상류 저장소에서 받는다
+ckpts/
+work/
+vendor/
+__pycache__/
+*.pyc

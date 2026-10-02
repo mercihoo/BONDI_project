@@ -1,0 +1,12 @@
+# CONTRIBUTING.md §10 — 스크립트·기록은 커밋, 산출물·원본·환경은 공유 스토리지.
+#
+# images/    e뮤지엄 굽다리바리 43점 원본 사진 (28MB). 출처는 meta/artifacts.csv 에 있다
+# trellis3d/ 사진에서 만든 3D (359MB)
+# work/      실루엣·프로파일 중간 산출물
+# .venv/     rembg·matplotlib 용 환경 (재생성 가능)
+images/
+trellis3d/
+work/
+.venv/
+__pycache__/
+*.pyc

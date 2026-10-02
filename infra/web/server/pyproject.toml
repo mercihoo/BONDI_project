@@ -1,0 +1,14 @@
+[project]
+name = "c201-catalog"
+version = "0.1.0"
+description = "3D 문화유산 자산 카탈로그 API"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",   # 복원본 업로드 (multipart/form-data)
+    "pillow>=10",                # LAS 점군 썸네일 (las_preview.py). Blender 는 LAS 를 못 읽는다
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,27 @@
+{
+  "source": "artifacts/nahan229/source_model.glb",
+  "result": "results/lean-fp8-ias1-off1-mcpu1-nahan229-moai-s1/output_mesh_color.glb",
+  "out": "results/lean-fp8-ias1-off1-mcpu1-nahan229-moai-s1/restored_with_original.glb",
+  "frame": "swap_yz",
+  "frame_medians": {
+    "same": 40.62839,
+    "swap_yz": 0.65495,
+    "swap_yz_negz": 2.83172,
+    "swap_yz_negy": 63.77596,
+    "swap_yz_negyz": 63.85341
+  },
+  "tau_voxels": 0.5,
+  "tau_abs": 1.02276,
+  "min_area_frac": 0.003,
+  "ymin_frac": 0.0,
+  "ymin_mode": "0",
+  "las_faces": 889108,
+  "faces_outside_tau": 484703,
+  "faces_after_height": 484703,
+  "fill_faces": 475221,
+  "components_total": 92,
+  "components_kept": 8,
+  "fill_area_frac_of_las": 0.5453,
+  "fill_area_frac_of_source": 1.0708,
+  "source_faces": 26326
+}

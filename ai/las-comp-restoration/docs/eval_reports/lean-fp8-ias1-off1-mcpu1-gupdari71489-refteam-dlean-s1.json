@@ -1,0 +1,17 @@
+{
+  "label": "lean-fp8-ias1-off1-mcpu1-gupdari71489-refteam-dlean-s1",
+  "result_file": "output_mesh.glb",
+  "n_verts": 500098,
+  "n_faces": 1000200,
+  "chamfer_l2_normalized": 0.011259,
+  "chamfer_frame": "yz_swapped",
+  "chamfer_l2_same": 0.051589,
+  "chamfer_l2_yz_swapped": 0.011259,
+  "observed_keep_median": 0.010797,
+  "observed_keep_p95": 0.034761,
+  "observed_keep_max": 0.051503,
+  "observed_frame": "yz_swapped",
+  "observed_distance_method": "dense_sample_2M",
+  "voxel_size_in_input_units": 0.01567,
+  "observed_outside_one_voxel_ratio": 0.3299
+}

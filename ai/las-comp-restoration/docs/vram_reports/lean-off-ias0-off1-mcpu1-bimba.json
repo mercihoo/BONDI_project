@@ -1,0 +1,50 @@
+{
+  "label": "lean-off-ias0-off1-mcpu1-bimba",
+  "status": "ok",
+  "error": null,
+  "elapsed_sec": 308.8,
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "total_vram_mib": 8188,
+  "peak_process_mib": 5061,
+  "peak_torch_alloc_mib": 4072,
+  "peak_torch_reserved_mib": 4406,
+  "argv": [
+    "run_lascomp_image_condition_single.py",
+    "--partial-path",
+    "samples/CompC_datasets/plyobj/indata/bimba.ply",
+    "--image-path",
+    "samples/image_from_compc/plyobj/bimba_color.png",
+    "--dataset",
+    "plyobj",
+    "--optimization-step",
+    "0",
+    "--output-dir",
+    "results/lean-off-ias0-off1-mcpu1-bimba"
+  ],
+  "quant_mode": "off",
+  "offload": true,
+  "mesh_cpu": true,
+  "offload_detail": {
+    "moved_to_cpu": [
+      "sparse_structure_decoder",
+      "sparse_structure_flow_model",
+      "slat_flow_model",
+      "sparse_structure_encoder",
+      "image_cond_model"
+    ],
+    "cuda_alloc_before_mib": 3836,
+    "cuda_alloc_after_mib": 195,
+    "freed_mib": 3642,
+    "cuda_alloc_after_decode_mib": 195,
+    "cuda_peak_during_decode_mib": 4072
+  },
+  "mesh_cpu_detail": {
+    "res": 256,
+    "use_color": true,
+    "cuda_alloc_before_mib": 1413,
+    "cuda_alloc_after_mib": 0,
+    "freed_mib": 1413
+  },
+  "effective_peak_mib": 5061,
+  "headroom_mib": 3127
+}

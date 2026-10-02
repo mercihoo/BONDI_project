@@ -1,0 +1,23 @@
+{
+  "label": "baseline-bimba",
+  "status": "error",
+  "error": "KeyError: 'sparse_structure_encoder'",
+  "elapsed_sec": 275.8,
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "total_vram_mib": 8188,
+  "peak_process_mib": null,
+  "peak_torch_alloc_mib": 5539,
+  "peak_torch_reserved_mib": 5590,
+  "argv": [
+    "run_lascomp_image_condition_single.py",
+    "--partial-path",
+    "samples/CompC_datasets/plyobj/indata/bimba.ply",
+    "--image-path",
+    "samples/image_from_compc/plyobj/bimba_color.png",
+    "--dataset",
+    "plyobj",
+    "--output-dir",
+    "results/baseline/bimba"
+  ],
+  "quant_mode": "off"
+}

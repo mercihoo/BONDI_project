@@ -1,0 +1,12 @@
+# 자료·생성물은 저장소에 넣지 않는다 (../ASSET_DB_BUILD_GUIDE.md) — 코드만 올린다
+server/.venv/
+__pycache__/
+*.pyc
+catalog.db
+catalog.db-*
+zips/
+preview/
+files/
+staging/
+*.pem
+jobs/

@@ -1,0 +1,62 @@
+{
+  "label": "lean-fp8-ias0-off1-bimba",
+  "status": "error",
+  "error": "RuntimeError: CUDA driver error: out of memory",
+  "elapsed_sec": 259.7,
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "total_vram_mib": 8188,
+  "peak_process_mib": 6022,
+  "peak_torch_alloc_mib": 6552,
+  "peak_torch_reserved_mib": 7054,
+  "argv": [
+    "run_lascomp_image_condition_single.py",
+    "--partial-path",
+    "samples/CompC_datasets/plyobj/indata/bimba.ply",
+    "--image-path",
+    "samples/image_from_compc/plyobj/bimba_color.png",
+    "--dataset",
+    "plyobj",
+    "--optimization-step",
+    "0",
+    "--output-dir",
+    "results/lean-fp8-ias0-off1-bimba"
+  ],
+  "quant_mode": "fp8",
+  "offload": true,
+  "offload_detail": {
+    "moved_to_cpu": [
+      "sparse_structure_decoder",
+      "sparse_structure_flow_model",
+      "slat_flow_model",
+      "sparse_structure_encoder",
+      "image_cond_model"
+    ],
+    "cuda_alloc_before_mib": 4473,
+    "cuda_alloc_after_mib": 1607,
+    "freed_mib": 2866
+  },
+  "quant_detail": [
+    {
+      "tag": "sparse_structure_flow_model",
+      "mode": "fp8",
+      "linear_count": 196,
+      "eligible_count": 122,
+      "quantized_count": 122,
+      "bytes_before_mib": 1062.3,
+      "bytes_after_mib": 675.3,
+      "saved_mib": 387.0
+    },
+    {
+      "tag": "slat_flow_model",
+      "mode": "fp8",
+      "linear_count": 203,
+      "eligible_count": 123,
+      "quantized_count": 123,
+      "bytes_before_mib": 1147.9,
+      "bytes_after_mib": 759.0,
+      "saved_mib": 389.0
+    }
+  ],
+  "quant_saved_mib": 776.0,
+  "headroom_mib": 2166
+}

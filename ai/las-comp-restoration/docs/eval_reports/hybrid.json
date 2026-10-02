@@ -1,0 +1,17 @@
+{
+  "source": "artifacts/gupdari71489/source_model.glb",
+  "above": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-guide8-s1/restored_with_original.glb",
+  "below": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-guide7-s1/restored_with_original.glb",
+  "out": "results/hybrid-g8body-g7foot/restored_with_original.glb",
+  "split": "auto",
+  "split_frac": 0.3828,
+  "split_y": -0.11764,
+  "up_axis": "y",
+  "above_faces_total": 846933,
+  "below_faces_total": 672082,
+  "taken_above": 513619,
+  "taken_below": 239529,
+  "merged_faces": 753148,
+  "merged_area_frac_of_source": 0.6322,
+  "geometry_changed": false
+}

@@ -1,0 +1,88 @@
+{
+  "_note": "형상 추정(blender_preview.py guess_orientation)이 틀리는 카드만 적는다. up = 파일 좌표에서 위를 향하는 축, flip = 그 축의 +끝이 바닥이면 true. 서버(main.py)와 local/make_preview.py 가 같은 형식으로 읽는다. 2026-09-08 6건, 2026-09-11 9건, 2026-09-18 5건, 2026-09-21 금관 2건 육안 확인. GLB 은 임포터가 glTF Y-up 을 블렌더 Z-up 으로 돌리므로((x,y,z)→(x,-z,y)) 같은 기하라도 OBJ 와 값이 다르다 — 여기 값은 모두 **블렌더 좌표** 기준이다. yaw 는 세로축 둘레 회전(도) — 바로 섰지만 옆을 보고 있을 때 쓴다.",
+  "bon009435_gold-crown-silla/3d/source": {
+    "up": "Z",
+    "flip": false
+  },
+  "bon009435_gold-crown-silla/3d/restored": {
+    "up": "Y",
+    "flip": true
+  },
+  "bon004163_clay-buddha-head/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "duk001485_unnamed/3d/source": {
+    "up": "Z",
+    "flip": false
+  },
+  "don000498_white-porcelain-incense-burner/3d/restored": {
+    "up": "Y",
+    "flip": false
+  },
+  "gae000001_celadon-incense-burner-lion-shaped-cover/3d/restored": {
+    "up": "Y",
+    "flip": false
+  },
+  "bon005860_gilt-bronze-crown-from-sinchon-ri-naju/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "don001115_unnamed/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "don001145_unnamed/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "duk000648_celadon-duck-shaped-water-dropper/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "duk004798_unnamed/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "goj000229_unnamed/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "koo010425_unnamed/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "duk006231_buncheong-turtle-shaped-bottle-sgraffito-peony/3d/source": {
+    "up": "Y",
+    "flip": true
+  },
+  "bon000219_celadon-bottle/3d/source": {
+    "up": "Y",
+    "flip": false
+  },
+  "new20260918_02/3d/source": {
+    "up": "Z",
+    "flip": false
+  },
+  "new20260917_02/3d/source": {
+    "up": "Y",
+    "flip": true
+  },
+  "ssu022891_comb-pattern-pottery/3d/source": {
+    "up": "Z",
+    "flip": false
+  },
+  "ssu022891_comb-pattern-pottery/3d/restored": {
+    "up": "Z",
+    "flip": false
+  },
+  "duk004487_silver-rimmed-celadon-bowl/3d/source": {
+    "up": "Z",
+    "flip": false
+  },
+  "bon009435_gold-crown-silla/3d/restored__2": {
+    "up": "Z",
+    "flip": false,
+    "yaw": 90
+  }
+}

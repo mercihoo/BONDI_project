@@ -1,0 +1,17 @@
+{
+  "label": "lean-fp8-ias1-off1-mcpu1-bimba",
+  "result_file": "output_mesh.glb",
+  "n_verts": 499076,
+  "n_faces": 998204,
+  "chamfer_l2_normalized": 0.001604,
+  "chamfer_frame": "yz_swapped",
+  "chamfer_l2_same": 0.037474,
+  "chamfer_l2_yz_swapped": 0.001604,
+  "observed_keep_median": 0.004642,
+  "observed_keep_p95": 0.00994,
+  "observed_keep_max": 0.023297,
+  "observed_frame": "yz_swapped",
+  "observed_distance_method": "dense_sample_2M",
+  "voxel_size_in_input_units": 0.014886,
+  "observed_outside_one_voxel_ratio": 0.0053
+}

@@ -1,0 +1,61 @@
+{
+  "label": "lean-off-ias1-off1-mcpu1-gupdari71489-txt-s1",
+  "status": "ok",
+  "error": null,
+  "elapsed_sec": 598.1,
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "total_vram_mib": 8188,
+  "peak_process_mib": 6295,
+  "peak_torch_alloc_mib": 4986,
+  "peak_torch_reserved_mib": 6126,
+  "argv": [
+    "run_lascomp_text_condition_single.py",
+    "--partial-path",
+    "samples/artifacts/gupdari71489/partial_norm.ply",
+    "--prompt",
+    "a complete intact Korean Silla gray stoneware pedestal bowl: a deep round bowl with horizontal grooved bands, on a tall trumpet-shaped stand pierced with two tiers of rectangular openwork windows, symmetric, museum artifact",
+    "--ckpt-path",
+    "ckpt/text-xlarge",
+    "--dataset",
+    "custom",
+    "--yz-flip",
+    "--seed",
+    "1",
+    "--optimization-step",
+    "1",
+    "--output-dir",
+    "results/lean-off-ias1-off1-mcpu1-gupdari71489-txt-s1"
+  ],
+  "quant_mode": "off",
+  "offload": true,
+  "mesh_cpu": true,
+  "offload_detail": {
+    "moved_to_cpu": [
+      "sparse_structure_decoder",
+      "sparse_structure_flow_model",
+      "slat_flow_model",
+      "sparse_structure_encoder",
+      "text_cond_model"
+    ],
+    "cuda_alloc_before_mib": 4986,
+    "cuda_alloc_after_mib": 185,
+    "freed_mib": 4801,
+    "cuda_alloc_after_decode_mib": 186,
+    "cuda_peak_during_decode_mib": 4986
+  },
+  "mesh_cpu_detail": {
+    "res": 256,
+    "use_color": true,
+    "cuda_alloc_before_mib": 1890,
+    "cuda_alloc_after_mib": 478,
+    "freed_mib": 1413
+  },
+  "decode_lean_detail": {
+    "enabled": true,
+    "norm_chunk_elems": 4194304,
+    "norm_calls": 4,
+    "norm_max_rows": 2414400
+  },
+  "effective_peak_mib": 6295,
+  "headroom_mib": 1893
+}

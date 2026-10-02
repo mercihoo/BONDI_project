@@ -1,0 +1,27 @@
+{
+  "source": "artifacts/gupdari71489/source_model.glb",
+  "result": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-guide3-s1/output_mesh_color.glb",
+  "out": "results/lean-fp8-ias1-off1-mcpu1-gupdari71489-guide3-s1/restored_with_original.glb",
+  "frame": "swap_yz",
+  "frame_medians": {
+    "same": 0.08925,
+    "swap_yz": 0.01026,
+    "swap_yz_negz": 0.0226,
+    "swap_yz_negy": 0.12659,
+    "swap_yz_negyz": 0.10071
+  },
+  "tau_voxels": 0.5,
+  "tau_abs": 0.00784,
+  "min_area_frac": 0.003,
+  "ymin_frac": 0.0,
+  "ymin_mode": "0",
+  "las_faces": 807968,
+  "faces_outside_tau": 498567,
+  "faces_after_height": 498567,
+  "fill_faces": 490893,
+  "components_total": 90,
+  "components_kept": 2,
+  "fill_area_frac_of_las": 0.6139,
+  "fill_area_frac_of_source": 0.4116,
+  "source_faces": 248938
+}

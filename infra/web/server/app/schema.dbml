@@ -1,0 +1,165 @@
+// 문화유산 3D 자료 카탈로그 — ERD (SQLite)
+// 원본: infra/web/server/app/schema.sql
+// dbdiagram.io 에 그대로 붙여 넣으면 그려진다.
+//
+// 3층 구조:  artifacts (유물 1점)  1─N  assets (2D·3D 카드)  1─N  files (개별 파일)
+
+Project c201_catalog {
+  database_type: 'SQLite'
+  Note: '''
+  # 문화유산 3D 자료 카탈로그
+
+  로컬 개발용 보조 도구.
+  화면 흐름: ① 2D/3D 선택 → ② 자료 목록 → ③ 검색 → ④ 파일 미리보기·다운로드
+  '''
+}
+
+Table artifacts {
+  artifact_id        text [pk, note: '폴더명. bon002789_pensive-bodhisattva-nt78 / RR_07_01_EA_028']
+  accession          text [note: '소장품번호 bon002789']
+  accession_ko       text [note: '본관2789 / 제주 39827']
+  slug               text
+  name_ko            text [not null, note: '금동 반가 사유상']
+  name_ko_source     text [not null, note: 'official | emuseum_official | derived']
+  alt_name           text [note: '다른명칭 (한자 등)']
+  name_en            text
+  name_en_source     text
+  designation        text [note: '국보/보물 표기']
+  period             text [note: '한국 - 삼국']
+  material           text [note: '금속 - 금동']
+  category           text [note: '종교신앙 - 불교 - 예배 - 불상']
+  size               text
+  excavation_site    text
+  provenance         text
+  description_ko     text [not null]
+  description_source text [not null]
+  description_en     text
+  source_org         text [not null, note: 'museum | aihub | emuseum | team']
+  museum             text [note: '소장처 표시명']
+  detail_url         text
+  license_status     text [not null, default: 'unverified', note: 'ok | unverified | restricted']
+  license_note       text
+  kogl_type          integer [note: '공공누리 1~4']
+  tags               text [note: '사람이 채움, 쉼표 구분. VR 이 있으면 VR 전시 대상']
+  note               text [note: '사람이 채움']
+  search_text        text [not null, note: '검색용 결합 문자열 (소문자)']
+  created_at         text [not null, default: `datetime('now')`]
+  updated_at         text [not null, default: `datetime('now')`]
+
+  Note: '유물 1점. 한글 정보는 비워두지 않고 출처를 *_source 에 남긴다.'
+}
+
+Table assets {
+  asset_id      text [pk, note: '<artifact_id>/<media_type>/<variant>']
+  artifact_id   text [not null, ref: > artifacts.artifact_id, note: 'ON DELETE CASCADE']
+  media_type    text [not null, note: "CHECK ('2d' | '3d')"]
+  variant       text [not null, note: 'source | restored | restored__<슬러그> | pointr_restored | symmetry_restored']
+  variant_ko    text [not null, note: '원본 | 복원본 (팀 AI) | 복원본 · LaS-Comp']
+  title_ko      text [not null, note: '"금동 반가 사유상 · 원본 3D"']
+  subtitle_ko   text
+  method        text [note: '복원 방식 (사람이 보정)']
+  owner         text [note: '만든 사람']
+  restore_types text [note: '쉼표 구분: shape 형태 | color 색 | img2mesh 2D→3D | symmetry 회전대칭 | pointr 점군완성']
+  produced_at   text
+  registered_at text [note: '등록 시각 UTC. 목록 기본 정렬 기준']
+  thumb_path    text
+  preview_path  text [note: '3D: preview/<artifact>/<variant>.glb']
+  preview_kind  text [not null, default: 'none', note: 'glb | image | none']
+  file_count    integer [not null, default: 0]
+  total_bytes   integer [not null, default: 0]
+  tri_count     integer
+  pt_count      integer
+  search_text   text [not null]
+  updated_at    text [not null, default: `datetime('now')`]
+
+  indexes {
+    (artifact_id, media_type, variant) [unique, note: '한 원본에 복원본 여러 개가 가능한 근거']
+    media_type
+    artifact_id
+  }
+  Note: '''
+  화면 목록의 1줄 = 이 표의 1행.
+  같은 유물이라도 2D 카드와 3D 카드는 별개 행이고, 3D 는 원본·복원본·실험출력마다 카드가 따로 있다.
+  variant 에 슬러그를 붙여 한 원본에 복원본을 여러 개 등록한다 (restored__lascomp 등).
+  '''
+}
+
+Table files {
+  path          text [pk, note: 'path 가 곧 URL (/files/<path>)']
+  asset_id      text [not null, ref: > assets.asset_id, note: 'ON DELETE CASCADE']
+  filename      text [not null]
+  original_name text [note: '정규화 전 원명']
+  kind          text [not null, note: 'photo | obj | mtl | texture | normalmap | ply | stl | las | report | image | other']
+  label_ko      text [not null, note: '"사진 1/6" "모델 (OBJ)" "점군 (PLY)"']
+  ext           text
+  size          integer [not null]
+  width         integer [note: '이미지일 때']
+  height        integer
+  sha256        text
+  has_gz        integer [not null, default: 0]
+  previewable   integer [not null, default: 0]
+  preview_path  text [note: '사진은 자기 자신 / obj·ply·stl 은 카드의 GLB']
+  sort_order    integer [not null, default: 0]
+  mtime         text
+  scanned_at    text [not null, default: `datetime('now')`]
+
+  indexes {
+    asset_id
+    kind
+    sha256
+  }
+  Note: '다운로드 단위. 디스크를 훑어(scan.py) 다시 만든다.'
+}
+
+Table favorites {
+  asset_id   text [pk, note: '논리적으로 assets.asset_id 를 가리키지만 FK 를 걸지 않는다']
+  note       text [note: '왜 찍었는지 (선택)']
+  created_at text [not null, default: `datetime('now')`]
+
+  Note: '''
+  팀 공용 즐겨찾기 (인증이 없으니 개인별이 아니라 "팀이 찍은 것").
+
+  **FK 를 일부러 걸지 않았다** — 재스캔이 assets 행을 지우고 다시 만드는데,
+  FK CASCADE 가 있으면 즐겨찾기가 함께 사라진다.
+  '''
+}
+
+Table feedback {
+  id         integer [pk, increment]
+  body       text [not null, note: '자유롭게 적는다']
+  author     text [note: '누가 (선택)']
+  status     text [not null, default: 'new', note: 'new 미확인 | seen 확인 | hold 대기 | doing 진행 | done 완료']
+  created_at text [not null, default: `datetime('now')`, note: 'UTC — 서버(UTC)와 보는 사람(KST)이 9시간 어긋났던 적이 있다']
+  updated_at text
+
+  indexes { id }
+  Note: '팀 피드백 게시판. 채팅처럼 쌓이고 항목마다 처리 상태를 바꾼다. favorites 와 같은 이유로 FK 없음.'
+}
+
+Table scans {
+  id          integer [pk, increment]
+  started_at  text [not null]
+  finished_at text
+  artifacts   integer
+  assets      integer
+  files       integer
+  total_bytes integer
+  note        text
+
+  Note: '스캔 이력. 디스크 → DB 재구축을 언제 돌렸고 무엇이 몇 개였는지.'
+}
+
+Table v_cards {
+  asset_id text [pk]
+  vr       integer [note: "유물 tags 에 'VR' 이 있으면 1"]
+  starred  integer [note: 'favorites 에 있으면 1']
+
+  Note: '''
+  **표가 아니라 VIEW** 다 (assets ⨝ artifacts ⟕ favorites).
+  목록 화면이 이걸 그대로 읽는다. 스캔마다 DROP & CREATE 해서 열 추가가 반영되게 한다.
+  실제 열은 assets·artifacts 의 대부분 + 계산열 vr·starred·starred_at·star_note.
+  '''
+}
+
+Ref: favorites.asset_id - assets.asset_id  // 논리적 관계 (DB 레벨 FK 없음)
+Ref: v_cards.asset_id - assets.asset_id    // VIEW 의 기준 열

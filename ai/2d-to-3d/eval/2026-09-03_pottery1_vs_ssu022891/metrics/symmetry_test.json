@@ -1,0 +1,38 @@
+{
+  "wall_mm": 15.0,
+  "A_raw": {
+    "chamfer_L1_mm": 10.082553623042443,
+    "fscore_1pct": 0.4431275143446322,
+    "fscore_2pct": 0.7070756302080604,
+    "hausdorff_mm": 112.9285174054195,
+    "front_half": "+y",
+    "front_mean_err_mm": 10.604271037465812,
+    "front_median_err_mm": 4.73792645291973,
+    "back_mean_err_mm": 12.378841006788035,
+    "back_median_err_mm": 5.326544737548976
+  },
+  "B_sym_solid": {
+    "chamfer_L1_mm": 11.393403279508263,
+    "fscore_1pct": 0.34509790477184193,
+    "fscore_2pct": 0.6030818826115051,
+    "hausdorff_mm": 119.08776713527816,
+    "accuracy_mean_mm": 12.161043906515292,
+    "completeness_mean_mm": 10.625762652501232
+  },
+  "C_sym_shell": {
+    "chamfer_L1_mm": 5.092538356061085,
+    "fscore_1pct": 0.6309184345461454,
+    "fscore_2pct": 0.8834993982122268,
+    "hausdorff_mm": 24.740724857994017,
+    "accuracy_mean_mm": 5.6196386791501425,
+    "completeness_mean_mm": 4.565438032972027
+  },
+  "D_gt_symmetrised": {
+    "chamfer_L1_mm": 3.601430833356502,
+    "fscore_1pct": 0.8053437974483143,
+    "fscore_2pct": 0.999692405414665,
+    "hausdorff_mm": 12.1619107375655,
+    "accuracy_mean_mm": 3.621280576070486,
+    "completeness_mean_mm": 3.5815810906425183
+  }
+}

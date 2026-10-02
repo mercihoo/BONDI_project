@@ -1,0 +1,26 @@
+{
+  "scale": 0.999406541505619,
+  "icp_rms_mm": 1.0557056231839954,
+  "chamfer_L1_mm": 1.0592513145053672,
+  "accuracy_mean_mm": 1.0562899603756968,
+  "completeness_mean_mm": 1.0622126686350375,
+  "hausdorff_mm": 6.695986350911526,
+  "p95_gen_to_gt_mm": 1.9950294465216594,
+  "fscore": {
+    "tau_1pct_5.4mm": {
+      "precision": 0.99973,
+      "recall": 0.99969,
+      "fscore": 0.999709999599884
+    },
+    "tau_2pct_10.7mm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "fscore": 1.0
+    },
+    "tau_5pct_26.8mm": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "fscore": 1.0
+    }
+  }
+}

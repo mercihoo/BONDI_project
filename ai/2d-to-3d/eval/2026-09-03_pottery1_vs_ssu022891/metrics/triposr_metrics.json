@@ -1,0 +1,144 @@
+{
+  "gen_mesh": {
+    "name": "<WORKSPACE>/work/triposr_out/0/mesh.obj",
+    "vertices": 79389,
+    "faces": 158748,
+    "bbox_extents": [
+      0.7578415900000001,
+      0.71395803,
+      1.1253545900000002
+    ],
+    "bbox_diagonal": 1.5331284673403196,
+    "watertight": false,
+    "surface_area": 2.527865228022044
+  },
+  "gt_mesh": {
+    "name": "<WORKSPACE>/gt_ascii/ssu022891-001-30000.obj",
+    "vertices": 197289,
+    "faces": 381464,
+    "bbox_extents": [
+      264.674492,
+      265.588716,
+      383.28204300000004
+    ],
+    "bbox_diagonal": 536.1856742474948,
+    "watertight": false,
+    "surface_area": 477560.784194059
+  },
+  "gt_extra": [
+    {
+      "name": "<WORKSPACE>/gt_ascii/scan_step3_tri.ply",
+      "vertices": 195777,
+      "faces": 384332,
+      "bbox_extents": [
+        262.1664047241211,
+        382.22576904296875,
+        267.8174057006836
+      ],
+      "bbox_diagonal": 535.307318353397,
+      "watertight": false,
+      "surface_area": 477210.74761873856,
+      "chamfer_L1_vs_gt_mm": 281.6711987461053,
+      "hausdorff_vs_gt_mm": 499.8303208684905
+    },
+    {
+      "name": "<WORKSPACE>/gt_ascii/print_step3.stl",
+      "vertices": 1174368,
+      "faces": 391456,
+      "bbox_extents": [
+        262.1690216064453,
+        382.22959899902344,
+        267.82007598876953
+      ],
+      "bbox_diagonal": 535.3126706362043,
+      "watertight": false,
+      "surface_area": 477612.2582924466,
+      "chamfer_L1_vs_gt_mm": 281.7357316572749,
+      "hausdorff_vs_gt_mm": 499.92638719080304
+    }
+  ],
+  "gt_up_axis": "z",
+  "alignment": {
+    "scale_gen_to_mm": 364.0314617444136,
+    "icp_rms_mm": 13.254468280438179,
+    "init_axis_rotation": [
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rotation": [
+      [
+        0.049871456091089776,
+        0.9984617351707953,
+        0.024228109028114536
+      ],
+      [
+        -0.9445657787461862,
+        0.039269755247401006,
+        0.32596529868134755
+      ],
+      [
+        0.32451244581520383,
+        -0.03914140675209438,
+        0.9450712263043991
+      ]
+    ],
+    "translation": [
+      -4.682416360422118,
+      26.40592756156287,
+      191.58053910094384
+    ],
+    "gen_extents_after_align_mm": [
+      260.2462767788936,
+      246.0293748964404,
+      375.94428268335554
+    ],
+    "gt_extents_mm": [
+      264.44877994913725,
+      265.48302555540647,
+      383.1997939056441
+    ]
+  },
+  "metrics_mm": {
+    "chamfer_L1_mm": 10.082553623033771,
+    "chamfer_L2_mm2": 278.66444923638824,
+    "accuracy_mean_mm": 11.484173811060568,
+    "completeness_mean_mm": 8.680933435006976,
+    "accuracy_median_mm": 5.009263325913776,
+    "completeness_median_mm": 7.215166903027477,
+    "hausdorff_mm": 112.92851740881488,
+    "p95_gen_to_gt_mm": 54.53120952115366,
+    "p95_gt_to_gen_mm": 18.962432281950843,
+    "fscore": {
+      "tau_1pct_5.4mm": {
+        "precision": 0.53683,
+        "recall": 0.377275,
+        "fscore": 0.4431275143446322
+      },
+      "tau_2pct_10.7mm": {
+        "precision": 0.79335,
+        "recall": 0.637725,
+        "fscore": 0.7070756302080604
+      },
+      "tau_5pct_26.8mm": {
+        "precision": 0.872405,
+        "recall": 0.999765,
+        "fscore": 0.9317529763055705
+      }
+    },
+    "surface_voxel_iou_64": 0.27806799691701634
+  },
+  "elapsed_s": 231.1527805328369
+}

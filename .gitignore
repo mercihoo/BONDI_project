@@ -1,0 +1,144 @@
+# ─────────────────────────────────────────────
+# Unreal Engine
+# CONTRIBUTING.md 10절 — 항상 제외
+# ─────────────────────────────────────────────
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/
+.vs/
+.vscode/
+*.VC.db
+*.opensdf
+*.opendb
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+
+# 언리얼 자동 생성 파일
+*.generated.h
+*.generated.cpp
+
+# ─────────────────────────────────────────────
+# Python / AI 파이프라인
+# ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.uv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ─────────────────────────────────────────────
+# 모델 가중치 · 대용량 원본
+# CONTRIBUTING.md 10절 — 저장소에 넣지 않고 공유 스토리지 사용
+# ─────────────────────────────────────────────
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.bin
+models/
+weights/
+checkpoints/
+
+# 원본 스캔 · 촬영 원본 (경로와 출처만 문서로 관리)
+*.las
+*.laz
+data/raw/
+data/source/
+
+# ─────────────────────────────────────────────
+# 중간 산출물 · 로그 · 빌드 결과
+# ─────────────────────────────────────────────
+*.log
+logs/
+outputs/
+runs/
+tmp/
+temp/
+*.apk
+*.aab
+builds/
+
+# Blender
+*.blend1
+*.blend2
+*.blend@
+
+# ─────────────────────────────────────────────
+# OS · 편집기
+# ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ─────────────────────────────────────────────
+# 비밀 정보
+# ─────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.key
+*.keystore
+secrets/
+
+# ─────────────────────────────────────────────
+# ai/3d-to-3d-color — 색·질감 후처리 중간 산출물
+# CONTRIBUTING.md 10절 — 메시·텍스처·원본 사진은 공유 스토리지, 스크립트·기록·비교 그림만 commit
+# ─────────────────────────────────────────────
+ai/3d-to-3d-color/**/*.glb
+ai/3d-to-3d-color/*.glb
+ai/3d-to-3d-color/*.jpg
+ai/3d-to-3d-color/**/basecolor_*.png
+ai/3d-to-3d-color/**/height_*.png
+ai/3d-to-3d-color/**/normal_*.png
+ai/3d-to-3d-color/**/uvmask_*.png
+ai/3d-to-3d-color/**/photo_small.jpg
+ai/3d-to-3d-color/**/*.mp4
+ai/3d-to-3d-color/**/mask_*.png
+ai/3d-to-3d-color/**/texture_restored_*.png
+ai/3d-to-3d-color/**/relief_*.png
+ai/3d-to-3d-color/**/raster_*.npz
+ai/3d-to-3d-color/out_restore/poc_*_v1?/
+ai/3d-to-3d-color/out_restore/poc_*_tone/
+ai/3d-to-3d-color/out_restore/poc_*_t0?/
+ai/3d-to-3d-color/out_restore/poc_*_destain/
+ai/3d-to-3d-color/out_restore/poc_*_nodark/
+ai/3d-to-3d-color/out_restore/poc_*_k1?/
+ai/3d-to-3d-color/out_restore/poc_*_gd????/
+ai/3d-to-3d-color/out_restore/poc_*_gate0/
+ai/3d-to-3d-color/out_restore/poc_*_destain0/
+ai/3d-to-3d-color/out_restore/poc_*_tone0/
+ai/3d-to-3d-color/out_restore/poc_*_chroma0/
+ai/3d-to-3d-color/out_restore/poc_*_keep*/
+ai/3d-to-3d-color/out_restore/poc_*_geom*/
+# 9/18 외부 유물 작업(굽다리접시 71489 / 굽다리바리 13472 / 굽다리잔 71209): 결과 폴더는 8K 텍스처와 GLB라
+# 커밋하지 않는다. 납품본은 Downloads 아래로 따로 내보낸다.
+ai/3d-to-3d-color/out_restore/poc_gubdari_*/
+ai/3d-to-3d-color/out_restore/poc_bari_*/
+ai/3d-to-3d-color/out_restore/poc_jan_*/
+ai/3d-to-3d-color/out_restore/synth_*_*/
+ai/3d-to-3d-color/out_restore/mask_paint/
+
+# Fab 나무 에셋 - 라이선스 미확인이고 실제로 쓰지 않는다 (나무는 Mobile_Trees 사용).
+# Fab 아래 나머지(Megascans, Materials 등 117개)는 이미 추적 중이므로 제외하지 않는다.
+vr/testproj/Content/Fab/Tree/
+vr/testproj/Content/Fab/Billboard_Tree_Pack/
+vr/testproj/Content/Fab/Free_Mega_Tree/

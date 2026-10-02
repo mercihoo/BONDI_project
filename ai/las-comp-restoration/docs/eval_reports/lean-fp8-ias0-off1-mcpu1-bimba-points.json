@@ -1,0 +1,14 @@
+{
+  "label": "lean-fp8-ias0-off1-mcpu1-bimba-points",
+  "result_file": "output_points.ply",
+  "chamfer_l2_normalized": 0.001266,
+  "chamfer_frame": "yz_swapped",
+  "chamfer_l2_same": 0.03523,
+  "chamfer_l2_yz_swapped": 0.001266,
+  "observed_keep_median": 0.007558,
+  "observed_keep_p95": 0.011259,
+  "observed_keep_max": 0.012755,
+  "observed_frame": "yz_swapped",
+  "voxel_size_in_input_units": 0.014886,
+  "observed_outside_one_voxel_ratio": 0.0
+}

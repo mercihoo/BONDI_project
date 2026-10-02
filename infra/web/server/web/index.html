@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>본디 — 유물 자료</title>
+<link rel="stylesheet" href="./app.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.js" } }</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-rabbit" viewBox="0 0 64 64">
+    <ellipse cx="22" cy="17" rx="7" ry="15" fill="#fff" stroke="#3b3b40" stroke-width="2.6"/>
+    <ellipse cx="42" cy="17" rx="7" ry="15" fill="#fff" stroke="#3b3b40" stroke-width="2.6"/>
+    <ellipse cx="22" cy="18" rx="3.4" ry="10" fill="#ffd3dd"/>
+    <ellipse cx="42" cy="18" rx="3.4" ry="10" fill="#ffd3dd"/>
+    <ellipse cx="32" cy="41" rx="22" ry="19" fill="#fff" stroke="#3b3b40" stroke-width="2.6"/>
+    <circle cx="24" cy="39" r="2.5" fill="#3b3b40"/>
+    <circle cx="40" cy="39" r="2.5" fill="#3b3b40"/>
+    <circle cx="18.5" cy="46" r="3.6" fill="#ffb7c8" opacity=".85"/>
+    <circle cx="45.5" cy="46" r="3.6" fill="#ffb7c8" opacity=".85"/>
+    <path d="M28 46.5q2 3.2 4 0q2 3.2 4 0" fill="none" stroke="#3b3b40" stroke-width="2.1" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-rabbit-sit" viewBox="0 0 64 64">
+    <ellipse cx="26" cy="16" rx="6" ry="13" fill="#fff" stroke="#3b3b40" stroke-width="2.6" transform="rotate(-12 26 16)"/>
+    <ellipse cx="40" cy="15" rx="6" ry="13" fill="#fff" stroke="#3b3b40" stroke-width="2.6" transform="rotate(10 40 15)"/>
+    <ellipse cx="26" cy="17" rx="2.8" ry="8.5" fill="#ffd3dd" transform="rotate(-12 26 17)"/>
+    <ellipse cx="40" cy="16" rx="2.8" ry="8.5" fill="#ffd3dd" transform="rotate(10 40 16)"/>
+    <path d="M13 50q0-18 19-18t19 18q0 8-19 8t-19-8z" fill="#fff" stroke="#3b3b40" stroke-width="2.6"/>
+    <circle cx="25" cy="42" r="2.2" fill="#3b3b40"/>
+    <circle cx="39" cy="42" r="2.2" fill="#3b3b40"/>
+    <circle cx="19" cy="47" r="3.2" fill="#ffb7c8" opacity=".85"/>
+    <circle cx="45" cy="47" r="3.2" fill="#ffb7c8" opacity=".85"/>
+    <path d="M29 47q1.7 2.8 3.5 0q1.7 2.8 3.5 0" fill="none" stroke="#3b3b40" stroke-width="1.9" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-rabbit-peek" viewBox="0 0 64 40">
+    <ellipse cx="24" cy="12" rx="5.5" ry="12" fill="#fff" stroke="#3b3b40" stroke-width="2.6"/>
+    <ellipse cx="40" cy="12" rx="5.5" ry="12" fill="#fff" stroke="#3b3b40" stroke-width="2.6"/>
+    <ellipse cx="24" cy="13" rx="2.6" ry="8" fill="#ffd3dd"/>
+    <ellipse cx="40" cy="13" rx="2.6" ry="8" fill="#ffd3dd"/>
+    <path d="M11 40q0-16 21-16t21 16z" fill="#fff" stroke="#3b3b40" stroke-width="2.6"/>
+    <circle cx="25" cy="34" r="2.3" fill="#3b3b40"/>
+    <circle cx="39" cy="34" r="2.3" fill="#3b3b40"/>
+  </symbol>
+</svg>
+<header class="top">
+  <a class="brand" href="#"><b>본디</b><span>유물 자료</span></a>
+  <nav class="media" id="mediaNav">
+    <button data-media="3d" class="on">3D <span id="n3d"></span></button>
+    <button data-media="2d">2D <span id="n2d"></span></button>
+    <button data-media="fav" class="fav" title="팀이 즐겨찾기한 것만 (2D·3D 모두) · VR 로 볼 수 있는 유물이 맨 앞에 옵니다">★ 즐겨찾기 <span id="nfav"></span></button>
+  </nav>
+  <form class="search" id="searchForm" onsubmit="return false">
+    <input id="q" type="search" placeholder="유물명 · 소장품번호 · 시대 · 재질 검색" autocomplete="off">
+    <select id="fSource" title="출처"><option value="">출처 전체</option><option value="museum">국립중앙박물관</option><option value="emuseum">e뮤지엄</option><option value="aihub">AIHub</option><option value="team">팀 등록</option></select>
+    <select id="fVariant" title="구분"><option value="">원본·복원 전체</option><option value="source">원본</option><option value="restored">복원본</option></select>
+    <!-- 복원본을 무엇으로 복원했는지로 거른다 (형태 / 색 / 2D→3D …) -->
+    <select id="fRestore" title="복원 종류"><option value="">복원 종류 전체</option><option value="shape">형태 복원</option><option value="color">색 복원</option><option value="img2mesh">2D→3D 변환</option><option value="symmetry">회전대칭 복원</option><option value="pointr">점군 완성</option></select>
+  </form>
+  <div class="links"><a href="/files/" target="_blank">파일 목록</a><a href="/api/docs" target="_blank">API</a></div>
+</header>
+
+<main id="list" class="page">
+  <div class="meta" id="listMeta"><span id="listCount"></span><span class="sp"></span><button id="fbBtn" class="sm" title="자료·화면에 대한 의견을 남기고 처리 상태를 관리합니다"><svg class="rab"><use href="#ic-rabbit"/></svg>피드백 <b id="fbN"></b></button><button id="newBtn" class="primary sm">+ 새 유물 등록</button></div>
+  <div class="grid" id="grid"></div>
+  <!-- 더 보기는 두 줄쯤 더 보이는 자리에 둔다 — 목록 맨 끝까지 내려가서 누르지 않게 (피드백 2026-09-17).
+       실제 버튼은 grid 안에 JS 가 끼워 넣고, 이 버튼은 목록 끝에서 남은 것을 마저 받는 용도로 남긴다 -->
+  <button id="more" class="more" hidden>더 보기</button>
+</main>
+
+<!-- 새 유물 등록 — 3D 칸과 2D 칸을 따로 둔다. 어느 칸에 넣었는지가 곧 답이라 서버가 짐작할 일이 없다 -->
+<!-- 팀 피드백 — 채팅처럼 쌓이고 항목마다 처리 상태를 바꾼다 -->
+<section id="fbPage" class="page" hidden>
+  <div class="detail-head">
+    <button id="fbBack" class="ghost">← 목록</button>
+    <h1><svg class="rab big"><use href="#ic-rabbit"/></svg>피드백</h1>
+  </div>
+  <div class="fbwrap">
+    <div class="fbmain">
+      <div class="fbroom" id="fbRoom"><ul class="fblist" id="fbList"></ul><svg class="rab corner"><use href="#ic-rabbit"/></svg></div>
+      <form class="fbbar" id="fbForm" onsubmit="return false">
+        <input id="fbAuthor" class="who-in" placeholder="이름" autocomplete="off">
+        <textarea id="fbBody" rows="1" placeholder="메시지를 적으세요  (Enter 로 보내기 · Ctrl+Enter 줄바꿈)"></textarea>
+        <button id="fbSend" class="primary" disabled>보내기</button>
+      </form>
+      <p class="hint" id="fbMsg"></p>
+    </div>
+    <!-- 오른쪽 여백: 마스코트 · 개수 · 상태 필터 -->
+    <aside class="fbside">
+      <svg class="rab side"><use href="#ic-rabbit"/></svg>
+      <div class="fbcounts" id="fbCounts"></div>
+      <div class="fbfilter" id="fbFilter">
+        <button data-f="" class="on">전체</button>
+        <button data-f="open">안 끝난 것</button>
+        <button data-f="new"><i class="dot new"></i>미확인</button>
+        <button data-f="seen"><i class="dot seen"></i>확인</button>
+        <button data-f="hold"><i class="dot hold"></i>대기</button>
+        <button data-f="doing"><i class="dot doing"></i>진행</button>
+        <button data-f="done"><i class="dot done"></i>완료</button>
+      </div>
+      <div class="rabrow">
+        <svg class="rab s2"><use href="#ic-rabbit-sit"/></svg>
+        <svg class="rab s2 flip"><use href="#ic-rabbit"/></svg>
+        <svg class="rab s2"><use href="#ic-rabbit-sit"/></svg>
+      </div>
+      <svg class="rab peek"><use href="#ic-rabbit-peek"/></svg>
+    </aside>
+  </div>
+</section>
+
+<section id="newArt" class="page" hidden>
+  <div class="detail-head">
+    <button id="newBack" class="ghost">← 목록</button>
+    <h1>새 유물 등록</h1>
+  </div>
+  <div class="newgrid">
+    <div class="box">
+      <h3>파일 <small>3D·사진 중 한쪽만 올려도 됩니다</small></h3>
+      <div class="buckets">
+        <div class="bucket">
+          <p class="drop" id="nDrop3">3D 파일 · 폴더
+            <span class="picks">
+              <label class="pick">파일<input type="file" id="nFiles3" multiple hidden></label>
+              <label class="pick">폴더<input type="file" id="nDir3" webkitdirectory hidden></label>
+            </span>
+            <small>OBJ+MTL+텍스처 · GLB · PLY · STL · LAS<br>여기 넣은 이미지는 <b>텍스처</b>로 봅니다</small>
+          </p>
+          <ul class="picked" id="nList3"></ul>
+        </div>
+        <div class="bucket">
+          <p class="drop" id="nDrop2">유물 사진
+            <span class="picks">
+              <label class="pick">파일<input type="file" id="nFiles2" multiple accept="image/*" hidden></label>
+            </span>
+            <small>JPG · PNG<br>여기 넣은 이미지는 <b>유물 사진</b>으로 등록됩니다</small>
+          </p>
+          <ul class="picked" id="nList2"></ul>
+        </div>
+      </div>
+      <p class="hint" id="nFileMsg"></p>
+    </div>
+
+    <div class="box">
+      <h3>유물 정보 <small>이름만 필수 · 나머지는 나중에 채워도 됩니다</small></h3>
+      <div class="fields">
+        <label><span class="lbl">유물명 <span class="req">필수</span></span><input id="nName" placeholder="예: 청자 상감 모란무늬 매병"></label>
+        <label>설명 <textarea id="nDesc" rows="3" placeholder="비우면 아래 값으로 한 줄 초안을 만들어 넣습니다"></textarea></label>
+        <div class="two">
+          <label>소장품번호 <input id="nAcc" placeholder="비우면 자동 (new20260911_01)"></label>
+          <label>지정 <input id="nDesig" placeholder="예: 국보 166"></label>
+          <label>시대 <input id="nPeriod" placeholder="예: 한국 - 고려"></label>
+          <label>재질 <input id="nMaterial" placeholder="예: 도자기 - 청자"></label>
+          <label>소장처 <input id="nMuseum" placeholder="예: 국립중앙박물관"></label>
+          <label>크기 <input id="nSize" placeholder="예: 높이 34cm"></label>
+          <label>등록자 <input id="nOwner" placeholder="예: 기여자"></label>
+          <label>메모 <input id="nNote" placeholder="확인할 점 등"></label>
+        </div>
+      </div>
+      <div class="actions"><button id="nSubmit" class="primary" disabled>등록</button><span class="hint" id="nMsg"></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="detail" class="page" hidden>
+  <div class="detail-head">
+    <button id="back" class="ghost">← 목록</button>
+    <h1 id="dTitle"></h1>
+    <button id="dStar" class="star big" title="즐겨찾기 (팀 공용)">☆</button>
+    <div class="badges" id="dBadges"></div>
+  </div>
+  <div class="detail-body">
+    <div class="preview-col">
+      <div class="preview-bar">
+        <span id="pvLabel"></span>
+        <span class="sp"></span>
+        <button id="cmpBtn" class="ghost" hidden>원본 ↔ 복원 비교</button>
+        <button id="pvReset" class="ghost">시점 초기화</button>
+      </div>
+      <div class="previews" id="previews">
+        <div class="preview" id="pv"></div>
+        <div class="preview" id="pv2" hidden></div>
+      </div>
+      <p class="hint" id="pvHint"></p>
+    </div>
+    <aside class="info">
+      <!-- 다른 자료로 건너뛰는 줄은 탭 위에 고정 — 가장 자주 쓰는 이동이라 맨 위에 둔다 -->
+      <div class="sib-bar" id="sibBar" hidden>
+        <span class="sl">같은 유물의 다른 자료</span>
+        <ul class="siblings" id="siblings"></ul>
+      </div>
+      <!-- 오른쪽은 탭으로 나눈다. 전부 펼쳐 두면 "이게 무슨 유물인지"가 파일 목록 밑에 파묻힌다 -->
+      <nav class="tabs" id="infoTabs">
+        <button data-pane="info" class="on">유물 정보</button>
+        <button data-pane="down">다운로드 <span id="tabDownN"></span></button>
+        <button data-pane="edit" id="tabEdit">메모</button>
+      </nav>
+
+      <div class="tabpane" data-pane="info">
+        <p class="desc" id="dDesc"></p>
+        <dl id="dInfo"></dl>
+      </div>
+
+      <div class="tabpane" data-pane="down" hidden>
+        <h3>폴더 통째로 받기 <small>OBJ는 MTL·텍스처와 같은 폴더에 있어야 열립니다</small></h3>
+        <ul class="zips" id="zips"></ul>
+        <h3>파일 하나씩 <small id="fileCount"></small></h3>
+        <ul class="files" id="files"></ul>
+      </div>
+
+      <div class="tabpane" data-pane="edit" hidden>
+        <section id="rtBox" hidden>
+          <h3>복원 종류 <small>무엇을 복원했는지 — 카드 배지와 필터에 쓰입니다</small></h3>
+          <div class="box">
+            <div class="rtpick" id="rtPick">
+              <label><input type="checkbox" value="shape"> 형태 복원</label>
+              <label><input type="checkbox" value="color"> 색 복원</label>
+              <label><input type="checkbox" value="img2mesh"> 2D→3D 변환</label>
+              <label><input type="checkbox" value="symmetry"> 회전대칭 복원</label>
+              <label><input type="checkbox" value="pointr"> 점군 완성 (PoinTr)</label>
+            </div>
+            <div class="actions"><button id="rtSave" class="primary">복원 종류 저장</button><span class="hint" id="rtMsg"></span></div>
+          </div>
+        </section>
+        <section id="restoredBox" hidden>
+          <h3>복원본 등록 <small id="upHint">파일만 올리면 유물 정보는 원본에서 가져옵니다 · 이름을 달리 적으면 여러 개 쌓입니다</small></h3>
+          <div class="box upload" id="uploadArea">
+            <p class="drop" id="dropZone">복원 결과 <b>파일이나 폴더</b>를 여기에 끌어놓으세요
+              <span class="picks">
+                <label class="pick">파일 선택<input type="file" id="upFiles" multiple hidden></label>
+                <label class="pick">폴더 선택<input type="file" id="upDir" webkitdirectory hidden></label>
+              </span>
+              <small>OBJ · MTL · 텍스처(JPG/PNG) · GLB · PLY · STL · LAS · 기록(JSON/TXT/MD)<br>OBJ는 MTL·텍스처까지 같이 — 폴더째 넣으면 하위 폴더까지 훑습니다</small></p>
+            <ul class="picked" id="pickedList"></ul>
+            <div class="fields">
+              <label>이름 <input id="upLabel" placeholder="비우면 기본 한 칸 — 적으면 여러 개 등록 (예: LaS-Comp)"></label>
+              <label>복원 방식 <input id="upMethod" placeholder="예: CIELAB 규칙 기반, PoinTr"></label>
+              <label>만든 사람 <input id="upOwner" placeholder="예: 기여자"></label>
+              <label>메모 <input id="upNote" placeholder="복원 범위·한계 등"></label>
+              <label class="chk"><input type="checkbox" id="upOverwrite"> 같은 이름이면 덮어쓰기</label>
+            </div>
+            <div class="actions"><button id="upBtn" class="primary" disabled>복원본 등록</button><span class="hint" id="upMsg"></span></div>
+          </div>
+        </section>
+        <h3>이 카드 메모 <small>기여자 누구나 수정할 수 있습니다</small></h3>
+        <div class="box edit">
+          <div class="fields">
+            <label>태그 <input id="eTags" placeholder="쉼표로 구분 · VR 을 넣으면 즐겨찾기에서 맨 앞에 옵니다"></label>
+            <label>메모 <textarea id="eNote" rows="3" placeholder="작업하면서 알게 된 점, 주의할 점"></textarea></label>
+            <label>복원 방식 <input id="eMethod" placeholder="예: CIELAB 규칙 기반"></label>
+            <label>만든 사람 <input id="eOwner" placeholder="예: 기여자"></label>
+          </div>
+          <div class="actions"><button id="save" class="primary">저장</button><span id="saveMsg" class="hint"></span></div>
+        </div>
+
+        <h3>삭제 <small>지우지 않고 휴지통(files/_trash/)으로 옮깁니다</small></h3>
+        <div class="box danger">
+          <p class="hint" id="delWhat"></p>
+          <div class="actions"><button id="delBtn" class="warn">이 유물 삭제</button><span class="hint" id="delMsg"></span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- 배포로 화면이 바뀌면 알려 준다. 열어 둔 탭이 옛 화면을 들고 있으면 새 기능이 안 보인다 -->
+<div id="newVer" class="newver" hidden>새 버전이 올라왔습니다 <button id="verReload">새로고침</button></div>
+<footer class="foot">
+  <span id="stats"></span>
+  <span class="sp"></span>
+  <button id="rescan" class="ghost" title="파일 넣은 뒤 DB 갱신">재스캔</button>
+  <span>출처 표시: 국립중앙박물관 · e뮤지엄(공공누리) · AIHub</span>
+</footer>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
